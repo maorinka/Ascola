@@ -153,9 +153,9 @@
 					bottom: '-10vh',
 					initialize: function() {
 
-						// Deactivate section.
-							if (skel.canUse('transition'))
-								$(this).addClass('inactive');
+						// // Deactivate section.
+						// 	if (skel.canUse('transition'))
+						// 		$(this).addClass('inactive');
 
 					},
 					enter: function() {
@@ -174,10 +174,10 @@
 
 					// Assign image.
 						$image.css('background-image', 'url(' + $img.attr('src') + ')');
-
-					// Set background position.
-						if (x = $img.data('position'))
-							$image.css('background-position', x);
+						$image.css('background-position', 'center');
+						$image.css('background-size', 'contain');
+						$image.css('background-repeat', 'no-repeat');
+						$image.css('margin-left', '13px');
 
 					// Hide <img>.
 						$img.hide();
