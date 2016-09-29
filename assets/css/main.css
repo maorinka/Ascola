@@ -3885,8 +3885,8 @@
 
 	#intro {
 		background-attachment: fixed;
-		background-image: url("../../img/stock-photo-classmate-classroom-sharing-international-friend-concept-403848226.jpg");
-		background-position: bottom right;
+		background-image: url("../../img/classroom.jpg");
+		background-position: center;
 		background-size: cover;
 		background-repeat: no-repeat;
 	}
@@ -3919,14 +3919,6 @@
 				}
 
 			}
-
-		@media screen and (max-width: 1280px) {
-
-			#intro {
-				background-attachment: scroll;
-			}
-
-		}
 
 div#start {
     width: 33%;
