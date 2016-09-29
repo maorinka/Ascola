@@ -3886,6 +3886,7 @@
 	#intro {
 		background-attachment: fixed;
 		background-image: url("../../img/classroom.jpg");
+		/*background-image: url("../../img/throwing-hats.jpg");*/
 		background-position: center;
 		background-size: cover;
 		background-repeat: no-repeat;
