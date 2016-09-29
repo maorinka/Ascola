@@ -3885,7 +3885,7 @@
 
 	#intro {
 		background-attachment: fixed;
-		background-image: url("../../img/stock-photo-classmate-classroom-sharing-international-friend-concept-403790431.jpg");
+		background-image: url("../../img/stock-photo-classmate-classroom-sharing-international-friend-concept-403848226.jpg");
 		background-position: bottom right;
 		background-size: cover;
 		background-repeat: no-repeat;
@@ -3931,7 +3931,7 @@
 div#start {
     width: 33%;
 		background: rgba(0, 0, 0, 0.2);
-		background: radial-gradient(circle, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 20%, rgba(0,0,0,0.4) 30%, rgba(255, 255, 255, 0) 100%);
+		background: radial-gradient(circle, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.3) 50%, rgba(255, 255, 255, 0) 100%);
 }
 
 p#wwd {
