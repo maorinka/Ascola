@@ -162,38 +162,10 @@
 								<li>
 									<div class="g-recaptcha" data-sitekey="6LeNRyUTAAAAAGRX9fcOiHSp3NJeARn108qhVn3G"></div>
 								</li>
-								<li><a href="" class="button submit">Send Message</a></li>
+								<li><a id="sendMsg" class="button">Send Message</a></li>
 							</ul>
 						</form>
 					</section>
-					<!--<section>
-									<ul class="contact">
-										<li>
-											<h3>Address</h3>
-											<span>12345 Somewhere Road #654<br />
-											Nashville, TN 00000-0000<br />
-											USA</span>
-										</li>
-										<li>
-											<h3>Email</h3>
-											<a href="#">user@untitled.tld</a>
-										</li>
-										<li>
-											<h3>Phone</h3>
-											<span>(000) 000-0000</span>
-										</li>
-										<li>
-											<h3>Social</h3>
-											<ul class="icons">
-												<li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
-												<li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
-												<li><a href="#" class="fa-github"><span class="label">GitHub</span></a></li>
-												<li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
-												<li><a href="#" class="fa-linkedin"><span class="label">LinkedIn</span></a></li>
-											</ul>
-										</li>
-									</ul>
-								</section>-->
 				</div>
 			</div>
 		</section>
@@ -223,37 +195,72 @@
 				
     $(function(){
 
-    $('#contactForm').submit(function(event){
-        $("#name").prop( "disabled", true );
-        $("#email").prop( "disabled", true );
-        $("#message").prop( "disabled", true );
-        $("#submit").prop( "disabled", true );
-        event.preventDefault();
-        $.ajax({
-          method: "POST",
-          url: "https://ww01fr6h4l.execute-api.eu-west-1.amazonaws.com/dev/util/sendContactEmail",
-          data: JSON.stringify({ 
-            name: $("#yourname").val(), 
-            email: $("#youremail").val(), 
-            "g-recaptcha-response": $(".g-recaptcha-response").val(),
-            message: $("#message1").val()
-          }),
-          headers: {
-            "Content-Type": 'application/json'
-          }
-        }).done(function( msg ) {
-            console.log(msg);
-            if(msg.error){
-              $('.form-error').html("<h3 style='color: red;'>Error sending the message. Please refresh the page and try again.</h3>");
-            }else{
-              $('.form-error').html("<h3 style='color: green;'>Thanks! We will get back to you soon.</h3>")
+			$('#contactForm').submit(function(event){
+				event.preventDefault();
+			});
+
+			$('#sendMsg').on('click',function(){
+				$("#name").prop( "disabled", true );
+				$("#email").prop( "disabled", true );
+				$("#message").prop( "disabled", true );
+				$("#submit").prop( "disabled", true );
+				
+				$.ajax({
+					method: "POST",
+					url: "https://ww01fr6h4l.execute-api.eu-west-1.amazonaws.com/dev/util/sendContactEmail",
+					data: JSON.stringify({ 
+						name: $("#yourname").val(), 
+						email: $("#youremail").val(), 
+						"g-recaptcha-response": $(".g-recaptcha-response").val(),
+						message: $("#message1").val()
+					}),
+					headers: {
+						"Content-Type": 'application/json'
+					}
+				}).done(function( msg ) {
+						console.log(msg);
+						if(msg.error){
+							$('.form-error').html("<h3 style='color: red;'>Error sending the message. Please refresh the page and try again.</h3>");
+						}else{
+							$('.form-error').html("<h3 style='color: green;'>Thanks! We will get back to you soon.</h3>")
 							$('#contactForm').css('visibility', 'hidden')
-            }
-            
-        });
-      });
+						}
+						
+				});
+			})
+		});
+
+			function submit(){
+				$("#name").prop( "disabled", true );
+				$("#email").prop( "disabled", true );
+				$("#message").prop( "disabled", true );
+				$("#submit").prop( "disabled", true );
+				
+				$.ajax({
+					method: "POST",
+					url: "https://ww01fr6h4l.execute-api.eu-west-1.amazonaws.com/dev/util/sendContactEmail",
+					data: JSON.stringify({ 
+						name: $("#yourname").val(), 
+						email: $("#youremail").val(), 
+						"g-recaptcha-response": $(".g-recaptcha-response").val(),
+						message: $("#message1").val()
+					}),
+					headers: {
+						"Content-Type": 'application/json'
+					}
+				}).done(function( msg ) {
+						console.log(msg);
+						if(msg.error){
+							$('.form-error').html("<h3 style='color: red;'>Error sending the message. Please refresh the page and try again.</h3>");
+						}else{
+							$('.form-error').html("<h3 style='color: green;'>Thanks! We will get back to you soon.</h3>")
+							$('#contactForm').css('visibility', 'hidden')
+						}
+						
+				});
+		}
     
-			</script>
+	</script>
 </body>
 
 </html>

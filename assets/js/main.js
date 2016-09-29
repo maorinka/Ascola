@@ -39,17 +39,17 @@
 			// Fix: Placeholder polyfill.
 				$('form').placeholder();
 
-			// Hack: Activate non-input submits.
-				$('form').on('click', '.submit', function(event) {
+			// // Hack: Activate non-input submits.
+			// 	$('form').on('click', '.submit', function(event) {
 
-					// Stop propagation, default.
-						event.stopPropagation();
-						event.preventDefault();
+			// 		// Stop propagation, default.
+			// 			event.stopPropagation();
+			// 			event.preventDefault();
 
-					// Submit form.
-						$(this).parents('form').submit();
+			// 		// Submit form.
+			// 			$(this).parents('form').submit();
 
-				});
+			// 	});
 
 		// Prioritize "important" elements on medium.
 			skel.on('+medium -medium', function() {
