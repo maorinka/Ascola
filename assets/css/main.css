@@ -3942,3 +3942,12 @@ p#wwd {
 	color: rgba(255, 255, 255, 0.95);
 	text-align: center;
 }
+
+.go-to-screenshots{
+	border-color: rgba(0, 0, 0, 0.15) !important;
+	color: rgba(0,0,0,0.8) !important;
+}
+
+.go-to-screenshots:hover{
+	border-color: #000 !important;
+}
