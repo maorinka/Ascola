@@ -3218,7 +3218,7 @@
 	}
 
 		.wrapper > .inner {
-			padding: 5em 5em 3em 5em ;
+			padding: 4em 2em 2em 2em;
 			max-width: 100%;
 			width: 75em;
 		}
@@ -3226,7 +3226,7 @@
 			@media screen and (max-width: 1680px) {
 
 				.wrapper > .inner {
-					padding: 4em 2em 2em 2em ;
+						padding: 4em 2em 2em 2em;
 				}
 
 			}
@@ -3239,10 +3239,18 @@
 
 			}
 
-			@media screen and (max-width: 736px) {
+			@media screen and (max-width: 933px) {
 
 				.wrapper > .inner {
-					padding: 3em 2em 1em 2em ;
+					padding: 3em 0em 1em 0em;
+				}
+
+			}
+
+			@media screen and (max-width: 425px) {
+
+				.wrapper > .inner {
+					padding: 2px;
 				}
 
 			}
@@ -3895,15 +3903,6 @@
 			font-size: 1.25em;
 		}
 
-		#intro > .img-cover{
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			right: 0;
-			left: 0;
-			background: linear-gradient()
-		}
-
 			@media screen and (max-width: 980px) {
 
 				#intro p br {
@@ -3924,7 +3923,18 @@ div#start {
     width: 33%;
 		background: rgba(0, 0, 0, 0.2);
 		background: radial-gradient(circle, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.3) 50%, rgba(255, 255, 255, 0) 100%);
+		background: -moz-radial-gradient(circle, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.3) 50%, rgba(255, 255, 255, 0) 100%);
+		background: -webkit-radial-gradient(circle, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.3) 50%, rgba(255, 255, 255, 0) 100%);
+		background: -ms-radial-gradient(circle, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.3) 50%, rgba(255, 255, 255, 0) 100%);
 }
+
+	@media screen and (max-width: 939px) {
+		div#start {
+			padding: 1em 0
+		}
+
+	}
+
 
 p#wwd {
     padding-left: 10px;

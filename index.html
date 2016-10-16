@@ -26,9 +26,9 @@
 			<nav>
 				<ul>
 					<li><a href="#intro">Welcome</a></li>
-					<li><a href="#one">Hybrid classrooms</a></li>
+					<li><a href="#one">Hybrid Classrooms</a></li>
 					<li><a href="#two">Product</a></li>
-					<li><a href="#three">Get in touch</a></li>
+					<li><a href="#contact">Get in touch</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -89,7 +89,7 @@
 					<section>
 						<span class="icon major fa-superscript"></span>
 						<h3>LaTex, code highlight, analytics and much more</h3>
-						<p>Doezen of features, and more to come. Make your classroom a place students can thrive.</p>
+						<p>Dozen of features, and more to come. Make your classroom a place students can thrive.</p>
 					</section>
 				</div>
 				<ul class="actions" style="text-align: center">
@@ -116,7 +116,7 @@
 				<div class="content">
 					<div class="inner">
 						<h2 style="color: rgba(0,0,0,0.85);">Learn at home, do in class.</h2>
-						<p>Watch lessons, ask qestions, and see other questions asked in that same second. Just like in a real lecture.</p>
+						<p>Watch lessons, ask questions, and see other questions asked in that same second. Just like in a real lecture.</p>
 						<!--<ul class="actions">
 										<li><a href="#" class="button">Learn more</a></li>
 									</ul>-->
@@ -127,7 +127,7 @@
 				<a href="#" class="image"><img src="images/5.png" alt="" data-position="25% 25%" /></a>
 				<div class="content">
 					<div class="inner">
-						<h2 style="color: rgba(0,0,0,0.85);">Qeustions & Discussions</h2>
+						<h2 style="color: rgba(0,0,0,0.85);">Questions & Discussions</h2>
 						<p>Rich text questions, with LaTeX and code highlight. Join questions of other students, or maybe answer and help your
 							friends. The teacher might like your answer and approve it.</p>
 						<!--<ul class="actions">
@@ -138,7 +138,8 @@
 			</section>
 		</section>
 		<!-- Three -->
-		<section id="three" class="wrapper style1 fade-up">
+		<section id="contact" class="wrapper style1 fade-up">
+			<a href="#contact"></a>
 			<div class="inner">
 				<h2>Teachers, Lecturers & Leaders, Join the Pilot</h2>
 				<p style="color: white;">Contact us through the form below, and we will schedule a live demo just for you.</p>
@@ -152,7 +153,7 @@
 							</div>
 							<div class="field half">
 								<label for="email">Email</label>
-								<input type="text" name="email" id="email" />
+								<input type="email" name="email" id="email" />
 							</div>
 							<div class="field">
 								<label for="message">Message</label>
@@ -177,6 +178,7 @@
 		<div class="inner">
 			<ul class="menu" style="color: white;">
 				<li>&copy; Ascola Learning Technologies Ltd. All rights reserved.</li>
+				<li><a target="_blank" href="http://getascola.com/privacy.pdf">Privacy</a> & <a target="_blank" href="http://getascola.com/terms.pdf">Terms</a></li>
 				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 			</ul>
 		</div>
@@ -192,27 +194,33 @@
 	<script src="assets/js/main.js"></script>
 	<script src="https://www.google.com/recaptcha/api.js"></script>
 	<script type="text/javascript">
-				
-    $(function(){
+        $(function(){
 
 			$('#contactForm').submit(function(event){
 				event.preventDefault();
 			});
 
 			$('#sendMsg').on('click',function(){
-				$("#name").prop( "disabled", true );
-				$("#email").prop( "disabled", true );
-				$("#message").prop( "disabled", true );
-				$("#submit").prop( "disabled", true );
+				if(!/@/.test($("#email").val())){
+					return $('.form-error').html("<h3 style='color: white;'>Email isn't valid</h3>");
+				}
+
+				if($("#email").val() == ''){
+					return $('.form-error').html("<h3 style='color: white;'>Please fill your email</h3>");
+				}
+
+				if($("#name").val() == ''){
+					return $('.form-error').html("<h3 style='color: white;'>Please fill your name</h3>");
+				}
 				
 				$.ajax({
 					method: "POST",
 					url: "https://ww01fr6h4l.execute-api.eu-west-1.amazonaws.com/dev/util/sendContactEmail",
-					data: JSON.stringify({ 
-						name: $("#yourname").val(), 
-						email: $("#youremail").val(), 
+					data: JSON.stringify({
+						name: $("#name").val(), 
+						email: $("#email").val(), 
 						"g-recaptcha-response": $(".g-recaptcha-response").val(),
-						message: $("#message1").val()
+						message: $("#message").val()
 					}),
 					headers: {
 						"Content-Type": 'application/json'
@@ -220,9 +228,9 @@
 				}).done(function( msg ) {
 						console.log(msg);
 						if(msg.error){
-							$('.form-error').html("<h3 style='color: red;'>Error sending the message. Please refresh the page and try again.</h3>");
+							$('.form-error').html("<h3 style='color: white;'>Error sending the message. Please refresh the page and try again.</h3>");
 						}else{
-							$('.form-error').html("<h3 style='color: green;'>Thanks! We will get back to you soon.</h3>")
+							$('.form-error').html("<h3 style='color: white;'>Thanks! We will get back to you soon.</h3>")
 							$('#contactForm').css('visibility', 'hidden')
 						}
 						
@@ -238,7 +246,7 @@
 				
 				$.ajax({
 					method: "POST",
-					url: "https://ww01fr6h4l.execute-api.eu-west-1.amazonaws.com/dev/util/sendContactEmail",
+					url: "https://159cxaygid.execute-api.eu-central-1.amazonaws.com/prod/util/sendContactEmail",
 					data: JSON.stringify({ 
 						name: $("#yourname").val(), 
 						email: $("#youremail").val(), 
@@ -259,7 +267,16 @@
 						
 				});
 		}
-    
+	</script>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-85222699-1', 'auto');
+		ga('send', 'pageview');
+
 	</script>
 </body>
 
