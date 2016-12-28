@@ -163,7 +163,7 @@
 								<li>
 									<div class="g-recaptcha" data-sitekey="6LeNRyUTAAAAAGRX9fcOiHSp3NJeARn108qhVn3G"></div>
 								</li>
-								<li><a id="sendMsg" class="button">Send Message</a></li>
+								<li><a id="sendMsg" class="button">Send Message</a><img id="loading-sending-msg" style="margin-bottom: -15px; margin-left: 11px; visibility: hidden" src="img/loading.svg" alt=""></li>
 							</ul>
 						</form>
 					</section>
@@ -213,6 +213,8 @@
 					return $('.form-error').html("<h3 style='color: white;'>Please fill your name</h3>");
 				}
 				
+				$('#loading-sending-msg').css('visibility', 'visible');
+
 				$.ajax({
 					method: "POST",
 					url: "https://ww01fr6h4l.execute-api.eu-west-1.amazonaws.com/dev/util/sendContactEmail",
@@ -227,6 +229,7 @@
 					}
 				}).done(function( msg ) {
 						console.log(msg);
+						$('#loading-sending-msg').css('visibility', 'hidden');
 						if(msg.error){
 							$('.form-error').html("<h3 style='color: white;'>Error sending the message. Please refresh the page and try again.</h3>");
 						}else{
